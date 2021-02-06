@@ -56,6 +56,11 @@ playBtn.addEventListener('click', () => {
 
 // Actualizar DOM
 function loadSong(song) {
+    // usando textContent automáticamente ignora reflujo o recarga 
+    // de texto en caso de ser repetido, porque si se usa
+    // innerText, éste siempre implica darle chamba al navegador.
+    // asi que en este escenario, por cuestion de performance, se
+    // debe usar textContext 
     title.textContent = song.display;
     artista.textContent = song.artist;
     music.src = `music/${song.name}.mp3`;
